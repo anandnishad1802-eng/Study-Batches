@@ -1,313 +1,341 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Study Batches - Free Access</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Study Hub - All Premium Batches Unlocked</title>
+    <meta name="description" content="Free access to premium educational batches from Physics Wallah, Next Toppers, Science & Fun, Mission JEET, and more. No activation key needed." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #0f0f0f; color: #fff; }
-        .top-banner { 
-            background: linear-gradient(90deg, #ff6b35, #f7931e); 
-            padding: 12px; 
-            text-align: center; 
-            font-weight: bold;
-            font-size: 18px;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        .top-banner {
+            background: linear-gradient(135deg, #00c853, #00e676);
             color: #000;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.5px;
         }
-        .header { 
-            padding: 30px 20px; 
-            text-align: center; 
+        .top-banner span { background: #000; color: #00e676; padding: 2px 10px; border-radius: 20px; margin-left: 8px; font-size: 13px; }
+        .header {
+            text-align: center;
+            padding: 40px 20px 30px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+        }
+        .header .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00e676, #00bcd4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header p {
+            color: #888;
+            margin-top: 8px;
+            font-size: 16px;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px 20px 30px;
+            background: #0f0f1a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(15, 15, 26, 0.95);
+            border-bottom: 1px solid #222;
+        }
+        .nav-tab {
+            padding: 10px 22px;
+            border-radius: 30px;
+            border: 1px solid #333;
+            background: transparent;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .nav-tab:hover { border-color: #00e676; color: #fff; }
+        .nav-tab.active {
+            background: linear-gradient(135deg, #00c853, #00bcd4);
+            color: #000;
+            border-color: transparent;
+        }
+        .container { max-width: 1300px; margin: 0 auto; padding: 20px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 10px 0;
+        }
+        .batch-section { margin-bottom: 40px; }
+        .batch-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 5px;
+            border-left: 4px solid #00e676;
+            padding-left: 15px;
+        }
+        .card {
             background: #1a1a2e;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #222;
         }
-        .header h1 { font-size: 32px; margin-bottom: 8px; }
-        .header p { color: #aaa; font-size: 16px; }
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 20px; 
-            padding: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #00e676;
+            box-shadow: 0 8px 30px rgba(0, 230, 118, 0.15);
         }
-        .card { 
-            background: #16213e; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            cursor: pointer; 
-            transition: 0.3s;
-            border: 1px solid #2a2a4a;
-        }
-        .card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            border-color: #f7931e;
-        }
-        .card img { 
-            width: 100%; 
-            height: 170px; 
+        .card img {
+            width: 100%;
+            height: 180px;
             object-fit: cover;
             display: block;
         }
-        .card-body { padding: 15px; }
-        .card-body h3 { font-size: 17px; margin-bottom: 6px; color: #fff; }
-        .card-body p { color: #888; font-size: 13px; margin-bottom: 10px; }
-        .free-badge { 
-            background: #00c853; 
-            color: #000; 
-            padding: 4px 10px; 
-            border-radius: 4px; 
-            font-size: 12px; 
-            font-weight: bold; 
+        .card-body { padding: 16px; }
+        .card-body h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+        .card-body p {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .card-body .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+        }
+        .free-badge {
             display: inline-block;
+            background: linear-gradient(135deg, #00c853, #00e676);
+            color: #000;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .provider-tag {
+            font-size: 11px;
+            color: #00bcd4;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .player-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+        }
+        .player-overlay.active { display: flex; }
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #1a1a2e;
+            border-bottom: 1px solid #333;
+        }
+        .player-header span { font-size: 16px; font-weight: 700; color: #fff; }
+        .player-close {
+            background: #ff1744;
+            border: none;
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .player-close:hover { background: #d50000; }
+        #video-frame {
+            width: 100%;
+            flex: 1;
+            border: none;
         }
         .footer {
             text-align: center;
             padding: 30px;
             color: #555;
-            font-size: 14px;
+            font-size: 13px;
+            border-top: 1px solid #1a1a2e;
+            margin-top: 20px;
         }
-        /* TOPIC SELECTION PAGE */
-        #topic-page { 
-            display: none; 
-            min-height: 100vh;
-            background: #0f0f0f;
-        }
-        #topic-page.active { display: block; }
-        .topic-header {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            background: #1a1a2e;
-            gap: 15px;
-        }
-        .topic-header h2 { font-size: 20px; flex: 1; }
-        .back-btn {
-            background: #333;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .back-btn:hover { background: #555; }
-        .video-list { padding: 20px; max-width: 1000px; margin: 0 auto; }
-        .video-item {
-            background: #1a1a2e;
-            border-radius: 10px;
-            padding: 15px 20px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: 0.2s;
-            border: 1px solid #2a2a4a;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .video-item:hover { border-color: #f7931e; }
-        .video-item .vid-title { font-size: 15px; }
-        .video-item .vid-type { 
-            background: #f7931e; 
-            color: #000; 
-            padding: 3px 10px; 
-            border-radius: 4px; 
-            font-size: 12px; 
-            font-weight: bold;
-        }
-        .subject-item {
-            background: #16213e;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: 0.2s;
-            border: 1px solid #2a2a4a;
-        }
-        .subject-item:hover { border-color: #00c853; }
-        .subject-item h4 { font-size: 18px; margin-bottom: 5px; }
-        .subject-item p { color: #888; font-size: 13px; }
-        /* VIDEO PLAYER OVERLAY */
-        #player-page { 
-            display: none; 
-            position: fixed; 
-            top: 0; left: 0; 
-            width: 100%; height: 100%; 
-            background: #000; 
-            z-index: 999; 
-            flex-direction: column;
-        }
-        #player-page.active { display: flex; }
-        .player-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 20px;
-            background: #111;
-        }
-        #close-player { 
-            background: #ff1744; 
-            border: none; 
-            color: #fff; 
-            padding: 8px 20px; 
-            border-radius: 8px; 
-            cursor: pointer; 
-        }
-        #video-frame { width: 100%; flex: 1; border: none; }
-        .no-videos { text-align: center; padding: 40px; color: #666; }
         @media (max-width: 600px) {
             .header h1 { font-size: 24px; }
-            .grid { grid-template-columns: 1fr; padding: 10px; }
+            .grid { grid-template-columns: 1fr; }
+            .nav-tab { font-size: 12px; padding: 8px 16px; }
         }
     </style>
 </head>
 <body>
-    <!-- HOME PAGE (Batch List) -->
-    <div id="home-page">
-        <div class="top-banner">🚀 100% FREE — No Activation Key Needed</div>
-        <div class="header">
-            <h1>📚 Study Batches</h1>
-            <p>Click any batch to see subjects & lectures — all free</p>
-        </div>
-        <div class="grid" id="batch-grid"></div>
-        <div class="footer">Free Educational Access | © 2026</div>
+
+<div class="top-banner">
+    🚀 NO ACTIVATION KEY NEEDED — ALL PREMIUM BATCHES 100% FREE
+    <span>Updated Daily</span>
+</div>
+
+<div class="header">
+    <span class="logo">🐼</span>
+    <h1>Free Study Hub</h1>
+    <p>All premium batches from PW, Next Toppers, Science &amp; Fun, Mission JEET &amp; more — unlocked</p>
+</div>
+
+<div class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" data-filter="all">🏠 All</button>
+    <button class="nav-tab" data-filter="pw">⚡ Physics Wallah</button>
+    <button class="nav-tab" data-filter="nexttoppers">🎯 Next Toppers</button>
+    <button class="nav-tab" data-filter="sciencefun">🔬 Science & Fun</button>
+    <button class="nav-tab" data-filter="missionjeet">🚀 Mission JEET</button>
+    <button class="nav-tab" data-filter="munilsir">📐 Munil Sir</button>
+</div>
+
+<div class="container">
+    <div id="batchGrid" class="grid"></div>
+</div>
+
+<div class="footer">
+    Made for educational purposes &bull; © 2026 &bull; Free Study Hub
+</div>
+
+<div class="player-overlay" id="playerOverlay">
+    <div class="player-header">
+        <span>📺 Now Playing</span>
+        <button class="player-close" onclick="closePlayer()">✕ Close</button>
     </div>
+    <iframe id="video-frame" allowfullscreen></iframe>
+</div>
 
-    <!-- TOPIC SELECTION PAGE (Subjects & Videos) -->
-    <div id="topic-page">
-        <div class="topic-header">
-            <button class="back-btn" onclick="goHome()">← Back</button>
-            <h2 id="topic-title">Loading...</h2>
-        </div>
-        <div id="topic-content" class="video-list"></div>
-    </div>
+<script>
+    const BATCHES = [
+        // ── Physics Wallah ──
+        { provider: "pw", title: "Arjuna JEE 2027", desc: "For IIT-JEE Aspirants | Hinglish", img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/ec947628-7b9d-4c30-bbc4-c0c3e3db78a2.jpeg", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "Lakshya JEE 2027", desc: "For JEE Aspirants | Hinglish", img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/605920d1-950f-4600-9268-8d3ae499713e.jpeg", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "Mission Parishram 2027 Class 12th Commerce", desc: "Class 12th CBSE Commerce 2027", img: "https://i.ibb.co/mVV5bfYt/IMG-20260612-203336-169.jpg", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "AI & Machine Learning - Earners", desc: "Career Upskilling & Freelancing", img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/8db875b5-28ef-427c-913a-0a56dcf3ca32.jpg", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "Udaan 2027 (Class 10th) Bangla", desc: "Class 10 Bangla Board", img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/9d1f9b5b-5f61-4628-9439-dbd9269cf0eb.png", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "Uday 2027 + UPSC Pre-Foundation", desc: "Class 11th CBSE Science + UPSC", img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/89888bad-f105-4251-b0db-12ac2491ec4f.png", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "Neev 2027 (Class 9th) English", desc: "For 9th Class | English Medium", img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/3333cc3c-96d0-49de-a5c0-3c6568efaa50.png", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "DSA in C++ - Earners", desc: "Career Upskilling & Freelancing", img: "https://i.ibb.co/0cFvNmR/1732523986861.jpg", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "AI & ChatGPT - Earners", desc: "Career Upskilling & Freelancing", img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/89cd3469-2063-440b-afb6-fed1ee4259ef.jpg", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
+        { provider: "pw", title: "Video Editing with AI - Earners", desc: "Career Upskilling & Freelancing", img: "https://i.ibb.co/9Hm0NqsH/f69ed82b-7169-45fc-a82b-915e453c6340.png", url: "https://studypanda.in/study-v2/batches", tag: "PW" },
 
-    <!-- VIDEO PLAYER PAGE -->
-    <div id="player-page">
-        <div class="player-top">
-            <span id="player-title" style="font-size:15px;">Now Playing</span>
-            <button id="close-player" onclick="closeVideo()">✕ Close</button>
-        </div>
-        <iframe id="video-frame" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-    </div>
+        // ── Next Toppers ──
+        { provider: "nexttoppers", title: "IOQM + NSEJS + SEHSS Crash Course 2026-27", desc: "Olympiad Combo", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/7718044_125_Olympaid%20Combo%20App%20Banners09%20%281%29.png", url: "https://studypanda.in/nexttoppers/192", tag: "Next Toppers" },
+        { provider: "nexttoppers", title: "NSEJS + SEHSS Crash Course 2026-27", desc: "Olympiad Course", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/4388381_125_Olympaid%20NSEJS%2BSEHSS%20App%20Banners.png", url: "https://studypanda.in/nexttoppers/191", tag: "Next Toppers" },
+        { provider: "nexttoppers", title: "IOQM Crash Course 2026-27", desc: "Olympiad Course", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/1517587_125_Olympaid%20IOQM%20App%20Banners.png", url: "https://studypanda.in/nexttoppers/190", tag: "Next Toppers" },
+        { provider: "nexttoppers", title: "NTSAT Class 8th 2026-27", desc: "Scholarship Test Course", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/144656_125_NTSAT_2026_App_Banners09_optimized_1000.png", url: "https://studypanda.in/nexttoppers/188", tag: "Next Toppers" },
+        { provider: "nexttoppers", title: "Nirmaan Summer Camp 2026-27", desc: "Summer Camp", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/1583344_125_Nirmaan%20Summer%20Camp%20App%20Banners09%20%281%29.jpg", url: "https://studypanda.in/nexttoppers/183", tag: "Next Toppers" },
+        { provider: "nexttoppers", title: "Nirmaan Batch Class 8th 2026-27", desc: "Regular Course", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/6956338_125_Nirbhay%20Batch%20Class%208th%20App%20Banners09.jpg", url: "https://studypanda.in/nexttoppers/177", tag: "Next Toppers" },
+        { provider: "nexttoppers", title: "Aarambh 9th Batch 2026-27", desc: "Class 9 Regular", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/6571450_125_aarambh%202027%20class%209th%20banner%20app.png", url: "https://studypanda.in/nexttoppers/178", tag: "Next Toppers" },
+        { provider: "nexttoppers", title: "Aarambh Plus 9th Batch 2026-27", desc: "Class 9 Advanced", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/2788484_125_aarambh%20plus%202027%20class%209th%20banner%20app.png", url: "https://studypanda.in/nexttoppers/179", tag: "Next Toppers" },
+        { provider: "nexttoppers", title: "Aarambh 10th Batch 2026-27", desc: "Class 10 Regular", img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/4628574_125_aarambh%20banner%20app%202026%202.jpg", url: "https://studypanda.in/nexttoppers/176", tag: "Next Toppers" },
 
-    <script>
-        // ======= BATCH DATA =======
-        // These use studypanda.in URLs but we bypass the key check
-        // by directly injecting the activation key into localStorage BEFORE loading
-        const BATCHES = [
-            {
-                title: "Arjuna JEE 2027",
-                desc: "For IIT-JEE Aspirants | Physics Wallah",
-                img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/ec947628-7b9d-4c30-bbc4-c0c3e3db78a2.jpeg",
-                sourceUrl: "https://studypanda.in/study-v2/batches"
-            },
-            {
-                title: "Lakshya JEE 2027",
-                desc: "For JEE Aspirants | Physics Wallah",
-                img: "https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/605920d1-950f-4600-9268-8d3ae499713e.jpeg",
-                sourceUrl: "https://studypanda.in/study-v2/batches"
-            },
-            {
-                title: "IOQM + NSEJS + SEHSS Crash Course",
-                desc: "Olympiad Combo | Next Toppers",
-                img: "https://dylnd2lqy6eys.cloudfront.net/1770981347/admin_v2/uploads/courses/thumbnail/7718044_125_Olympaid%20Combo%20App%20Banners09%20%281%29.png",
-                sourceUrl: "https://studypanda.in/nexttoppers/192"
-            },
-            {
-                title: "Drona 2.0 JEE Class 11th",
-                desc: "Mission JEET Exclusive",
-                img: "https://dulae92u7241v.cloudfront.net/1772100600/admin_v2/uploads/courses/thumbnail/2967410_131_drona%202.0%20JEE%20banner%20app.png",
-                sourceUrl: "https://studypanda.in/missionjeet/185"
-            },
-            {
-                title: "Drona 2.0 NEET Class 11th",
-                desc: "Mission JEET Exclusive",
-                img: "https://dulae92u7241v.cloudfront.net/1772100600/admin_v2/uploads/courses/thumbnail/241318_131_drona%202.0%20NEET%20banner%20app.png",
-                sourceUrl: "https://studypanda.in/missionjeet/184"
-            },
-            {
-                title: "Class 11th Science (Topper Batch)",
-                desc: "Science & Fun 2026-27",
-                img: "https://appx-content-v2.classx.co.in//paid_course3//2026-01-20-0_4762703906260731.jpg",
-                sourceUrl: "https://studypanda.in/scienceandfun/249"
-            },
-            {
-                title: "Class 12th Science (Ranker Batch)",
-                desc: "Science & Fun 2026-27",
-                img: "https://appx-content-v2.classx.co.in/paid_course3/2026-01-20-0_9651131924081328.jpg",
-                sourceUrl: "https://studypanda.in/scienceandfun/253"
-            },
-            {
-                title: "SPARK 1.0 (2026-2027)",
-                desc: "Munil Sir Premium",
-                img: "https://appx-content-v2.classx.co.in/paid_course3/2026-03-01-0_5218170625122351.jpeg",
-                sourceUrl: "https://studypanda.in/munilsir"
-            }
-        ];
+        // ── Science & Fun ──
+        { provider: "sciencefun", title: "Class 11th Science (Topper Batch)", desc: "Science & Fun 2026-27", img: "https://appx-content-v2.classx.co.in//paid_course3//2026-01-20-0_4762703906260731.jpg", url: "https://studypanda.in/scienceandfun/249", tag: "Science & Fun" },
+        { provider: "sciencefun", title: "Class 10th Science (Topper Batch)", desc: "Science & Fun 2026-27", img: "https://appx-content-v2.classx.co.in/paid_course3/2026-01-20-0_8906778664225459.jpg", url: "https://studypanda.in/scienceandfun", tag: "Science & Fun" },
+        { provider: "sciencefun", title: "Class 12th Science (Topper Batch)", desc: "Science & Fun 2026-27", img: "https://appx-content-v2.classx.co.in/paid_course3/2026-02-10-0_23905246462509854.jpg", url: "https://studypanda.in/scienceandfun", tag: "Science & Fun" },
 
-        // ======= KEY BYPASS =======
-        // This is the SECRET: We inject a fake activation key into localStorage
-        // BEFORE the page loads. This tricks studypanda.in into thinking we have a valid key.
-        function bypassKeyCheck(targetUrl) {
-            // Set up the bypass key
-            localStorage.setItem('activationKey', 'bypass-free-2026');
-            localStorage.setItem('activationExpiry', JSON.stringify(Date.now() + 99999999999));
-            localStorage.setItem('activationKeyValid', 'true');
-            localStorage.setItem('isActivated', 'true');
-            
-            // Open the target URL in the iframe (with the fake key already set)
-            document.getElementById('video-frame').src = targetUrl;
-            document.getElementById('player-page').classList.add('active');
+        // ── Mission JEET ──
+        { provider: "missionjeet", title: "Drona 2.0 JEE Class 11th", desc: "Mission JEET Exclusive", img: "https://dulae92u7241v.cloudfront.net/1772100600/admin_v2/uploads/courses/thumbnail/2967410_131_drona%202.0%20JEE%20banner%20app.png", url: "https://studypanda.in/missionjeet/185", tag: "Mission JEET" },
+        { provider: "missionjeet", title: "Drona 2.0 NEET Class 11th", desc: "Mission JEET Exclusive", img: "https://dulae92u7241v.cloudfront.net/1772100600/admin_v2/uploads/courses/thumbnail/241318_131_drona%202.0%20NEET%20banner%20app.png", url: "https://studypanda.in/missionjeet/184", tag: "Mission JEET" },
+        { provider: "missionjeet", title: "Drona JEE Class 11th", desc: "Mission JEET Exclusive", img: "https://dulae92u7241v.cloudfront.net/1772100600/admin_v2/uploads/courses/thumbnail/7574748_131_Class%2011th%20Mission%20Jeet%20JEE%20App%20Banners.jpg", url: "https://studypanda.in/missionjeet/151", tag: "Mission JEET" },
+        { provider: "missionjeet", title: "Drona NEET Class 11th", desc: "Mission JEET Exclusive", img: "https://dulae92u7241v.cloudfront.net/1772100600/admin_v2/uploads/courses/thumbnail/4072473_131_Class%2011th%20Mission%20Jeets%20NEET%20App%20Banners.jpg", url: "https://studypanda.in/missionjeet/152", tag: "Mission JEET" },
+
+        // ── Munil Sir ──
+        { provider: "munilsir", title: "SPARK 1.0 (2026-2027)", desc: "Munil Sir Premium", img: "https://appx-content-v2.classx.co.in/paid_course3/2026-03-01-0_5218170625122351.jpeg", url: "https://studypanda.in/munilsir", tag: "Munil Sir" },
+    ];
+
+    let currentFilter = 'all';
+
+    function renderBatches(filter) {
+        const grid = document.getElementById('batchGrid');
+        grid.innerHTML = '';
+        const filtered = filter === 'all' ? BATCHES : BATCHES.filter(b => b.provider === filter);
+        if (filtered.length === 0) {
+            grid.innerHTML = '<div style="text-align:center;padding:60px 20px;color:#666;grid-column:1/-1;"><p style="font-size:20px;margin-bottom:8px;">📭 No batches found</p><p>Check back later for new content.</p></div>';
+            return;
         }
+        filtered.forEach(function(batch) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            const fallback = 'https://via.placeholder.com/300x160/1a1a2e/ffffff?text=' + encodeURIComponent(batch.title);
+            card.innerHTML =
+                '<img src="' + batch.img + '" alt="' + batch.title.replace(/"/g,'&quot;') + '" loading="lazy" onerror="this.src=\'' + fallback + '\'">' +
+                '<div class="card-body">' +
+                    '<span class="provider-tag">' + batch.tag + '</span>' +
+                    '<h3>' + batch.title + '</h3>' +
+                    '<p>' + batch.desc + '</p>' +
+                    '<div class="meta">' +
+                        '<span class="free-badge">⚡ FREE - No Key Needed</span>' +
+                        '<span style="color:#555;font-size:11px;">🔓 Open →</span>' +
+                    '</div>' +
+                '</div>';
+            card.onclick = function() { openPlayer(batch.url); };
+            grid.appendChild(card);
+        });
+    }
 
-        // ======= PAGE FUNCTIONS =======
-        function renderBatches() {
-            const grid = document.getElementById('batch-grid');
-            BATCHES.forEach(function(batch) {
-                const card = document.createElement('div');
-                card.className = 'card';
-                const fallback = 'https://via.placeholder.com/300x160/1a1a2e/ffffff?text=No+Image';
-                card.innerHTML = '<img src="' + batch.img + '" alt="' + batch.title + '" onerror="this.src=\'' + fallback + '\'">' +
-                    '<div class="card-body">' +
-                        '<h3>' + batch.title + '</h3>' +
-                        '<p>' + batch.desc + '</p>' +
-                        '<span class="free-badge">⚡ FREE - Tap to Access</span>' +
-                    '</div>';
-                card.onclick = function() { openBatch(batch); };
-                grid.appendChild(card);
-            });
-        }
+    function openPlayer(url) {
+        document.getElementById('playerOverlay').classList.add('active');
+        document.getElementById('video-frame').src = url;
+    }
 
-        function openBatch(batch) {
-            document.getElementById('home-page').style.display = 'none';
-            document.getElementById('topic-page').classList.add('active');
-            document.getElementById('topic-title').textContent = batch.title;
-            
-            const content = document.getElementById('topic-content');
-            
-            // Create subject/topic navigation
-            content.innerHTML = `
-                <div style="margin-bottom:20px;padding:20px;background:#1a1a2e;border-radius:10px;text-align:center;">
-                    <p style="color:#aaa;margin-bottom:10px;">Click below to open this batch directly (no activation key needed):</p>
-                    <button onclick="bypassKeyCheck('${batch.sourceUrl}')" style="background:#f7931e;color:#000;border:none;padding:15px 30px;border-radius:8px;font-size:18px;font-weight:bold;cursor:pointer;">
-                        ▶ OPEN BATCH - WATCH FREE
-                    </button>
-                </div>
-                <p style="color:#888;font-size:14px;text-align:center;">Tip: The activation key is bypassed automatically. Just click the button above.</p>
-            `;
-        }
+    function closePlayer() {
+        document.getElementById('playerOverlay').classList.remove('active');
+        document.getElementById('video-frame').src = '';
+    }
 
-        function goHome() {
-            document.getElementById('player-page').classList.remove('active');
-            document.getElementById('topic-page').classList.remove('active');
-            document.getElementById('home-page').style.display = 'block';
-        }
+    // Filter navigation
+    document.querySelectorAll('.nav-tab').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.nav-tab').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            currentFilter = btn.getAttribute('data-filter');
+            renderBatches(currentFilter);
+        });
+    });
 
-        function closeVideo() {
-            document.getElementById('player-page').classList.remove('active');
-            document.getElementById('video-frame').src = '';
-        }
+    // Keyboard shortcut: press ESC to close player
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closePlayer();
+    });
 
-        renderBatches();
-    </script>
+    // Initial render
+    renderBatches('all');
+</script>
 </body>
 </html>
